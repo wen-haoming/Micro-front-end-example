@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://shared/./index.js"],"names":[],"mappings":";;;;;;;;;;;;;;AAAkC;;AAElC;;AAEA,iEAAe,MAAM,EAAC","file":"index_js.js","sourcesContent":["import React, { FC } from 'react';\n\nconst Button = '23123'\n\nexport default Button;\n"],"sourceRoot":""}
