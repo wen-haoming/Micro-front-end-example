@@ -1,0 +1,20 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "lerna run start",
+    "start-main": "cd packages && cd main-app && npm run start",
+    "start-a": "cd packages && cd sub-a-app && npm run start",
+    "start-b": "cd packages && cd sub-b-app && npm run start"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@umijs/plugin-qiankun": "^2.26.0"
+  }
+}
