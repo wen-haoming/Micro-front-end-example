@@ -1,25 +1,25 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
-
 module.exports = {
   entry: "./index.js",
   mode: "development",
   devtool: "hidden-source-map",
-  output: {
-    publicPath: "http://localhost:3000/",
-    clean: true,
-  },
   module: {},
+  devServer: {
+    port:10000,
+    headers: {
+      'X-Custom-Foo': 'bar',
+    },
+},
   plugins: [
     new ModuleFederationPlugin({
-      name: "lib_app",
-      filename: "remoteEntry.js",
-      library: { type: 'umd', name: 'lib_app' },
+      name: "mf1",
+      library: { type: 'umd', name: 'mf1' },
+      filename: 'remoteEntry.js',
       exposes: {
-        "./react": "react",
-        "./react-dom": "react-dom",
-        "./Button":'./index.js'
+        "./Button": './index.js',
       },
+      shared: { react: { eager: true }, "react-dom": { eager: true } },
     }),
   ],
 };

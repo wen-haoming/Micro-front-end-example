@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack://shared/./index.js"],"names":[],"mappings":";;;;;;;;;;;;;;AAAkC;;AAElC;;AAEA,iEAAe,MAAM,EAAC","file":"index_js.js","sourcesContent":["import React, { FC } from 'react';\n\nconst Button = '23123'\n\nexport default Button;\n"],"sourceRoot":""}
+{"version":3,"sources":["webpack://shared/./index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;AAAkC;;;AAGlC;AACA;AACA;;;AAGA,iEAAe,G","file":"index_js.js","sourcesContent":["import React, { FC } from 'react';\n\n\nconst btn =  ()=>{\n    return  12312312\n};\n\n\nexport default btn"],"sourceRoot":""}

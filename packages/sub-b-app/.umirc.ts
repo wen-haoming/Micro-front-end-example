@@ -1,32 +1,36 @@
 import { defineConfig } from 'umi';
-const { ModuleFederationPlugin } = require("webpack").container;
+const { ModuleFederationPlugin } = require('webpack').container;
 
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/index' },
-  ],
+  routes: [{ path: '/', component: '@/pages/index' }],
+  qiankun: { slave: {} },
   fastRefresh: {},
-  webpack5:{
-
-  },
-  dynamicImport:{},
-  publicPath:'/',
-  qiankun:{
-    slave:{}
-  },
-  chainWebpack(config){
-    // config.plugin()
-    config.plugin('ModuleFederationPlugin')
-    .use(ModuleFederationPlugin,[
+  webpack5: {},
+  dynamicImport: {},
+  devServer: {
+    headers: {
+        // Enable wide open CORS
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+},
+  // mfsu:{},
+  chainWebpack(memo) {
+    memo.output.publicPath('auto');
+    memo.plugin('mf').use(ModuleFederationPlugin, [
       {
-        name: "sub-b-app",
+        name: 'mf2',
         remotes: {
-          "lib-app": "lib_app@http://localhost:3000/remoteEntry.js",
+          // mf1: 'mf1@//localhost:3000/remoteEntry.js',
+          SubApp:'SubApp@//localhost:8002/remoteEntry.js',
         },
-      }
-    ])
-  }
+        shared: { react: { eager: true }, "react-dom": { eager: true },"antd":{eager:true} },
+      },
+    ]);
+  },
+  plugins:['./umi-plugin-mf-bootstrap.ts']
 });

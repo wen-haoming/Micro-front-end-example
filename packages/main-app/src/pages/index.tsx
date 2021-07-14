@@ -11,15 +11,16 @@ import {
 } from '@ant-design/icons';
 import { IRouteComponentProps } from 'umi';
 
+
 const { Content, Header, Sider } = Layout;
 
 const SiderDemo: React.FC<IRouteComponentProps> = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const [appName, setAppName] = useState('');
-
   const toggle = () => {
     setCollapsed(!collapsed);
   };
+
 
   return (
     <Layout

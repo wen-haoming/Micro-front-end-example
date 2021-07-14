@@ -1,5 +1,9 @@
 import React, { FC } from 'react';
 
-const Button = '23123'
 
-export default Button;
+const btn =  ()=>{
+    return  12312312
+};
+
+
+export default btn

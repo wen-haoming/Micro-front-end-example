@@ -1,12 +1,14 @@
 import React,{useEffect} from 'React';
 import styles from './index.less';
-import Buttom from "lib-app/Button"
+import Button from 'SubApp/Button';
 
  function IndexPage() {
-    console.log(Buttom)
+
   return (
     <div>
-      <h1 className={styles.title}>sub-b-app</h1>
+      <Button/>
+     <h1> 123</h1>
+      123
     </div>
   );
 }

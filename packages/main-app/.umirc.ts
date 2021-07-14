@@ -1,9 +1,11 @@
 import { defineConfig, MicroApp } from 'umi';
+const { ModuleFederationPlugin } = require("webpack").container;
 
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  headScripts:['./remoteEntry.js'],
   routes: [
     { path: '/', component: '@/pages/index' },
     {
@@ -15,7 +17,19 @@ export default defineConfig({
       MicroApp:'sub-b-app'
     },
   ],
+  devServer: {
+    headers: {
+        // Enable wide open CORS
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+},
+  chainWebpack(memo){
+    memo.output.publicPath('auto');
+  },
   fastRefresh: {},
+  webpack5:{},
   qiankun: {
     master: {
       // 注册子应用信息
@@ -31,4 +45,14 @@ export default defineConfig({
       ],
     },
   },
+  // chainWebpack(memo) {
+  //   memo
+  //     .plugin('mf')
+  //     .use(ModuleFederationPlugin, [{
+  //       name: "mf2",
+  //       remotes: {
+  //         "lib": "lib@//localhost:3000/remoteEntry.js"
+  //       },
+  //     }])
+  // },
 });
