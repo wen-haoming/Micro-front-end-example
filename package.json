@@ -5,12 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start",
-    "clean":"lerna clean",
-    "start-main": "cd packages && cd main-app && npm run start",
     "start-a": "cd packages && cd sub-a-app && npm run start",
-    "start-b": "cd packages && cd sub-b-app && npm run start",
-    "start-shared":"cd packages && cd shared && npm run start"
+    "start-b": "cd packages && cd sub-b-app && npm run start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

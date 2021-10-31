@@ -3,14 +3,12 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 
 export default (api: IApi) => {
-
   api.onGenerateFiles(() => {
-    const buffer= readFileSync(resolve('./src/.umi/umi.ts'))
-    const c = String(buffer)
+    const content= readFileSync(resolve('./src/.umi/umi.ts'),'utf-8')
     // console.log()
     api.writeTmpFile({
       path: 'index.ts',
-      content: c,
+      content,
     });
     api.writeTmpFile({
       path: 'umi.ts',

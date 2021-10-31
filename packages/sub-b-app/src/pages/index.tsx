@@ -1,12 +1,14 @@
 import React,{useEffect} from 'React';
-import styles from './index.less';
-import Button from 'SubApp/Button';
+// const Button = React.lazy(()=> import('mf1/Button') )
+import Button from 'mf1/Button'
 
  function IndexPage() {
 
   return (
     <div>
-      <Button/>
+      <React.Suspense fallback="loading---">
+        <Button/>
+      </React.Suspense>
      <h1> 123</h1>
       123
     </div>

@@ -6,7 +6,6 @@ export default defineConfig({
     type: 'none',
   },
   routes: [{ path: '/', component: '@/pages/index' }],
-  qiankun: { slave: {} },
   fastRefresh: {},
   webpack5: {},
   dynamicImport: {},
@@ -20,15 +19,25 @@ export default defineConfig({
 },
   // mfsu:{},
   chainWebpack(memo) {
+    // 容器
     memo.output.publicPath('auto');
-    memo.plugin('mf').use(ModuleFederationPlugin, [
+    memo.plugin('mf2').use(ModuleFederationPlugin, [
       {
         name: 'mf2',
         remotes: {
-          // mf1: 'mf1@//localhost:3000/remoteEntry.js',
-          SubApp:'SubApp@//localhost:8002/remoteEntry.js',
+          mf1:'mf1@//localhost:8002/remoteEntry.js',
         },
-        shared: { react: { eager: true }, "react-dom": { eager: true },"antd":{eager:true} },
+        shared: {
+          react: {
+            singleton: true, // only a single version of the shared module is allowed
+          },
+          "react-dom": {
+            singleton: true, // only a single version of the shared module is allowed
+          },
+          "antd":{
+            singleton: true, // only a single version of the shared module is allowed
+          }
+        },
       },
     ]);
   },
