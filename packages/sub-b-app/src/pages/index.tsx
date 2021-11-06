@@ -1,9 +1,18 @@
-import styles from './index.less';
+import React,{useEffect} from 'React';
+// const Button = React.lazy(()=> import('mf1/Button') )
+import Button from 'mf1/Button'
 
-export default function IndexPage() {
+ function IndexPage() {
+
   return (
     <div>
-      <h1 className={styles.title}>sub-b-app</h1>
+      <React.Suspense fallback="loading---">
+        <Button/>
+      </React.Suspense>
+     <h1> 123</h1>
+      123
     </div>
   );
 }
+
+export default React.memo(IndexPage)

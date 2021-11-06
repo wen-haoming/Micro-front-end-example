@@ -3,7 +3,7 @@
   "name": "sub-a-app",
   "version": "0.0.1",
   "scripts": {
-    "start": "PORT=8001 umi dev",
+    "start": "PORT=8002 umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
