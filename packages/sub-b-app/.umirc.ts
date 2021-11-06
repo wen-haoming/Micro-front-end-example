@@ -7,8 +7,6 @@ export default defineConfig({
   },
   routes: [{ path: '/', component: '@/pages/index' }],
   fastRefresh: {},
-  webpack5: {},
-  dynamicImport: {},
   devServer: {
     headers: {
         // Enable wide open CORS
@@ -18,6 +16,9 @@ export default defineConfig({
     },
 },
   // mfsu:{},
+
+  dynamicImport: {}, // 必须 需要代码分隔
+  webpack5: {},
   chainWebpack(memo) {
     // 容器
     memo.output.publicPath('auto');

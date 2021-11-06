@@ -12,7 +12,6 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@umijs/plugin-qiankun": "^2.26.0"
+    "@ant-design/icons": "^4.6.2"
   }
 }
