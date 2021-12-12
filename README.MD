@@ -1,5 +1,11 @@
 # umi 中使用 webpack5 的模块联邦
 
+```bash
+pnpm i
+```
+
+
+
 ## 1. sub-a-app (mf1)
 
 ```ts
@@ -41,8 +47,6 @@ const ButtonCom = ()=>{
 
 export default React.memo(ButtonCom)
 ```
-
-
 
 ## 2. sub-b-app (mf2)
 

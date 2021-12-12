@@ -5,13 +5,15 @@
     "packages/*"
   ],
   "scripts": {
-    "start-a": "cd packages && cd sub-a-app && npm run start",
-    "start-b": "cd packages && cd sub-b-app && npm run start"
+    "dev": "run-s dev:**",
+    "dev:subA": "cd packages && cd sub-a-app && npm run start",
+    "dev:suB": "cd packages && cd sub-b-app && npm run start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2"
+    "@ant-design/icons": "^4.6.2",
+    "npm-run-all": "^4.1.5"
   }
 }
