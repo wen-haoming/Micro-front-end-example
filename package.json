@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-s start:**",
+    "start": "run-p start:**",
     "start:main": "cd ./packages/main && npm run start",
     "start:umi-sub-app": "cd ./packages/umi-sub-app && npm run start",
     "start:vue-sub-app": "cd ./packages/vue-sub-app && npm run start"

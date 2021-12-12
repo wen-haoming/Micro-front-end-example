@@ -5,12 +5,13 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-const port = 7105;
+const port = 4001;
 
 module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   filenameHashing: true,
+  publicPath:'/micro-vue',
   devServer: {
     hot: true,
     disableHostCheck: true,

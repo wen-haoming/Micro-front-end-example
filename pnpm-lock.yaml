@@ -18,6 +18,7 @@ importers:
       css-loader: ^3.2.0
       html-webpack-plugin: ^3.2.0
       less-loader: ^6.2.0
+      qiankun: ^2.6.2
       react: ^16.13.1
       react-dom: ^16.13.1
       style-loader: ^1.0.0
@@ -27,6 +28,7 @@ importers:
       webpack-dev-server: ^3.9.0
       zone.js: ^0.10.2
     dependencies:
+      qiankun: 2.6.2
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
       vue: 2.6.14
@@ -7171,6 +7173,12 @@ packages:
     dependencies:
       resolve-from: 3.0.0
 
+  /import-html-entry/1.11.1:
+    resolution: {integrity: sha1-PYxZd5Jr3RIquOZYllwQIGi0r40=, tarball: import-html-entry/download/import-html-entry-1.11.1.tgz}
+    dependencies:
+      '@babel/runtime': 7.16.3
+    dev: false
+
   /import-local/2.0.0:
     resolution: {integrity: sha1-VQcL44pZk88Y72236WH1vuXFoJ0=, tarball: import-local/download/import-local-2.0.0.tgz}
     engines: {node: '>=6'}
@@ -8720,7 +8728,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=, tarball: lodash/download/lodash-4.17.21.tgz}
-    dev: true
 
   /log-symbols/2.2.0:
     resolution: {integrity: sha1-V0Dhxdbw39pK2TI7UzIQfva0xAo=, tarball: log-symbols/download/log-symbols-2.2.0.tgz}
@@ -8942,7 +8949,7 @@ packages:
     dev: false
 
   /mime/1.6.0:
-    resolution: {integrity: sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=, tarball: mime/download/mime-1.6.0.tgz?cache=0&sync_timestamp=1636373388207&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-1.6.0.tgz}
+    resolution: {integrity: sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=, tarball: mime/download/mime-1.6.0.tgz?cache=0&sync_timestamp=1636370946189&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-1.6.0.tgz}
     engines: {node: '>=4'}
     hasBin: true
     dev: true
@@ -10606,6 +10613,16 @@ packages:
     resolution: {integrity: sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=, tarball: q/download/q-1.5.1.tgz}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     dev: true
+
+  /qiankun/2.6.2:
+    resolution: {integrity: sha512-3jPTLy8BCLFQsebNhnFKy+y1Uc8vJCIEJ2nAfjgF+kmbckNLM3rQeFmXgDLdIYySTU4wTmT9uzW0VwXmNx11JA==, tarball: qiankun/download/qiankun-2.6.2.tgz}
+    dependencies:
+      '@babel/runtime': 7.16.3
+      import-html-entry: 1.11.1
+      lodash: 4.17.21
+      single-spa: 5.9.3
+      tslib: 1.14.1
+    dev: false
 
   /qs/6.10.2:
     resolution: {integrity: sha512-mSIdjzqznWgfd4pMii7sHtaYF8rx8861hBO80SraY5GT0XQibWZWJSid0avzHGkDIZLImux2S5mXO0Hfct2QCw==, tarball: qs/download/qs-6.10.2.tgz}
@@ -12341,6 +12358,10 @@ packages:
       is-arrayish: 0.3.2
     dev: true
 
+  /single-spa/5.9.3:
+    resolution: {integrity: sha1-LRUcuzsnNimlsnswo7jKhH3LpMU=, tarball: single-spa/download/single-spa-5.9.3.tgz}
+    dev: false
+
   /sisteransi/1.0.5:
     resolution: {integrity: sha1-E01oEpd1ZDfMBcoBNw06elcQde0=, tarball: sisteransi/download/sisteransi-1.0.5.tgz}
     dev: true
@@ -13115,7 +13136,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=, tarball: tslib/download/tslib-1.14.1.tgz}
-    dev: true
 
   /tslib/2.1.0:
     resolution: {integrity: sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=, tarball: tslib/download/tslib-2.1.0.tgz}

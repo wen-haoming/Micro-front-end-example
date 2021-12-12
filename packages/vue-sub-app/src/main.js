@@ -9,10 +9,10 @@ let router = null;
 let instance = null;
 let history = null;
 
-
 function render(props = {}) {
+
   const { container } = props;
-  history = createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3' : '/');
+  history = createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/micro-vue' : '/');
   router = createRouter({
     history,
     routes,
@@ -25,6 +25,7 @@ function render(props = {}) {
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
+  // qiankun 进入
   render();
 }
 
