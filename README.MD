@@ -1,6 +1,9 @@
 # qiankun
 
-> 个人觉得 qiankun 更适合的应用场景在于中台页面。
+官网关于从 0 构建新项目[链接](https://qiankun.umijs.org/zh/guide/tutorial)
+
+
+>本文只涉及任意主应用和 umi 子应用下的配置。
 ## demo 启动
 
 ```bash
@@ -44,9 +47,6 @@ registerMicroApps(
 
 - Step3 启动
 
-
-
-
 ```js
 import { start } from 'qiankun'
 
@@ -68,19 +68,55 @@ start(); // 启动 qiankun，只要路由匹配就会渲染子应用
 
 ## Q&A
 
+### 跨域问题
 
-### 跨域
+[官方回答](https://qiankun.umijs.org/zh/faq#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%B8%80%E5%AE%9A%E8%A6%81%E6%94%AF%E6%8C%81%E8%B7%A8%E5%9F%9F%E5%90%97)
 
+1. 如果子应用是独立部署的话，使用 nginx 代理其路径即可。
 ### 样式隔离
 
+qiankun 没有主动去帮助我们去解决样式隔离，为了防止主应用和子应用的样式不兼容的情况下，同时基于 `ant` 和 `umi` 的解决方案是：
+
+1. 子应用
+
+- 改变 `ant` 的类名前缀
+```js
+{
+  lessLoader:{
+    lodifyVars:{
+      "@ant-prefix":"myprefix", // ant-btn -> myprefix-btn
+    },
+    javascriptEnabled:true
+  }
+}
+```
+
+但是如果涉及到要修改 ant 的样式的话
+
+```less
+.@{ant-prefix}-xxx{
+
+}
+```
+
+- 编写页面样式采用 `css module` 的形式
+
+2. 子应用
+
+- 采用 css module
+- 如果不小心还是被覆盖，那么提高样式类名的层级，比如使用 id 选择器
 ### 父子路由匹配
 
-### 独立渲染区域
+这里说得很清楚[点击查看](https://qiankun.umijs.org/zh/api#registermicroappsapps-lifecycles)
 
-### http 请求，props 传递
+### 子应用只渲染对应的内容到主应用上
 
+使用 `window.__POWERED_BY_QIANKUN__ ` 这个变量来判断，如果是 true 只渲染对应的内容。
 
+### props 传递
+
+props 传递这边建议使用函数传递，因为函数执行能够获取最新的上下文环境，
 # 使用感受
 
 1. 如果一个页面需要同时加载多个子应用(并且子应用的)会出现性能问题，qiankun 这边更多使用基于路由配置也就是 `registerMicroApps` 这个形式注册。
-2. 
+2. 加载仍旧感觉有部分的延迟
