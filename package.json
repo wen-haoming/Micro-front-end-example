@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "run-s dev:**",
+    "dev": "run-p dev:**",
     "dev:subA": "cd packages && cd sub-a-app && npm run start",
     "dev:suB": "cd packages && cd sub-b-app && npm run start"
   },

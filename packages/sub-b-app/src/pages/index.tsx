@@ -9,7 +9,6 @@ import Button from 'mf1/Button'
       <React.Suspense fallback="loading---">
         <Button/>
       </React.Suspense>
-     <h1> 123</h1>
       123
     </div>
   );
