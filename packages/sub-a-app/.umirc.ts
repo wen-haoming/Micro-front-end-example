@@ -17,9 +17,6 @@ export default defineConfig({
     },
 },
   fastRefresh: {},
-  qiankun:{
-    slave:{}
-  },
   webpack5:{},
   chainWebpack(memo) {
     memo.output.publicPath('auto');
@@ -28,7 +25,9 @@ export default defineConfig({
         name: 'mf1',
         filename: "remoteEntry.js",
         exposes:{
-          './Button':'./src/components/Button.tsx'
+          './Button':'./src/components/Button.tsx',
+          './FormRender':'./src/components/FormRender/index.tsx',
+          './DrawerFormRender':'./src/components/DrawerFormRender/index.tsx',
         },
         shared: {
           react: {

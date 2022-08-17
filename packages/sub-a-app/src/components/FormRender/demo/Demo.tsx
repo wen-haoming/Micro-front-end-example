@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import {Spin} from 'antd'
-// FormRender
-const FormRender =  React.lazy(() => import('mf1/FormRender'))
+import FormRender from '..';
+import 'antd/dist/antd.css';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+import FormWrap from './FormWrap';
 
-function IndexPage() {
+const Demo = () => {
 
   return (
-    <div style={{width:300,margin:'100px auto'}}>
-      <React.Suspense fallback={<Spin spinning/>} >
+    <ConfigProvider locale={zhCN}>
+      <FormWrap>
         <FormRender
           layout="vertical"
           fields={[
@@ -38,9 +39,9 @@ function IndexPage() {
             },
           ]}
         />
-      </React.Suspense>
-    </div>
+      </FormWrap>
+    </ConfigProvider>
   );
-}
+};
 
-export default React.memo(IndexPage)
+export default Demo;
